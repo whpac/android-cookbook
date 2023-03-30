@@ -15,6 +15,14 @@ class RecipeDetailsFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_recipe_details, container, false)
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
+            recipeId = savedInstanceState.getLong("recipeId");
+        }
+    }
+
+
     override fun onStart() {
         super.onStart()
         val view = view
@@ -32,4 +40,9 @@ class RecipeDetailsFragment : Fragment() {
     fun setRecipe(recipeId: Long){
         this.recipeId = recipeId
     }
+
+    override fun onSaveInstanceState(savedInstanceState: Bundle) {
+        savedInstanceState.putLong("recipeId", recipeId)
+    }
+
 }

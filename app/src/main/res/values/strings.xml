@@ -3,7 +3,12 @@
     <string name="detail_button">Pokaż przepis</string>
     <string name="recipe_name">Nazwa dania</string>
     <string name="recipe_text">Treść przepisu</string>
+    <string name="new_timer">Nowy minutnik:</string>
+    <string name="add_timer">Dodaj</string>
     <string name="start">Start</string>
     <string name="stop">Stop</string>
     <string name="reset">Reset</string>
+    <string name="unit_sec">sek</string>
+    <string name="unit_min">min</string>
+    <string name="unit_hrs">godz</string>
 </resources>

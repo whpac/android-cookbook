@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical">
@@ -16,42 +15,8 @@
             android:text="@string/recipe_text"
             android:id="@+id/textDescription" />
 
-        <LinearLayout
+        <FrameLayout
+            android:id="@+id/timersFragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-                <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text="@string/new_timer"/>
-                <Spinner
-                    android:id="@+id/timerInitialValues"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <Button
-                     android:layout_height="wrap_content"
-                     android:layout_width="wrap_content"
-                     android:text="@string/add_timer" />
-        </LinearLayout>
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                        <fragment
-                            android:id="@+id/timerFrag1"
-                            android:name="pl.put.cookbook.TimerFragment"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            tools:layout="@layout/fragment_timer" />
-                        <fragment
-                            android:id="@+id/timerFrag2"
-                            android:name="pl.put.cookbook.TimerFragment"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            tools:layout="@layout/fragment_timer" />
-                </LinearLayout>
-        </ScrollView>
+            android:layout_height="wrap_content" />
 </LinearLayout>

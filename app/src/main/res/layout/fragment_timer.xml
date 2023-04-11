@@ -4,8 +4,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    >
+    android:padding="16dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/new_timer"/>
+        <Spinner
+            android:id="@+id/timerInitialValues"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp" />
+        <Button
+            android:id="@+id/addTimerButton"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:text="@string/start" />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/time_view"
         android:layout_width="wrap_content"
@@ -29,13 +46,5 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="8dp"
         android:text="@string/stop"
-        />
-    <Button
-        android:id="@+id/reset_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="8dp"
-        android:text="@string/reset"
         />
 </LinearLayout>

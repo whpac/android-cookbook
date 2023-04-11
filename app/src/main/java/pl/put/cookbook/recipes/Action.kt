@@ -16,24 +16,31 @@ class Action (private val text: String, private val seconds: Int? = null) {
     }
 
     fun getHumanReadableTime(): String? {
-        if (seconds == null) return null
+        return getHumanReadableTime(seconds)
+    }
 
-        val res = App.appResources
-        if (seconds <= 90 && seconds != 60) {
-            return seconds.toString() + " " + res.getString(R.string.unit_sec)
+    companion object {
+
+        fun getHumanReadableTime(seconds: Int?): String? {
+            if (seconds == null) return null
+
+            val res = App.appResources
+            if (seconds <= 90 && seconds != 60) {
+                return seconds.toString() + " " + res.getString(R.string.unit_sec)
+            }
+
+            val nf = DecimalFormat.getInstance()
+            nf.minimumFractionDigits = 0
+            nf.maximumFractionDigits = 1
+
+            var minutes = seconds / 60.0
+            if (minutes <= 90.0 && minutes != 60.0) {
+                if (minutes >= 10) minutes = floor(minutes)
+                return nf.format(minutes) + " " + res.getString(R.string.unit_min)
+            }
+
+            val hours = minutes / 60.0
+            return nf.format(hours) + " " + res.getString(R.string.unit_hrs)
         }
-
-        val nf = DecimalFormat.getInstance()
-        nf.minimumFractionDigits = 0
-        nf.maximumFractionDigits = 1
-
-        var minutes = seconds / 60.0
-        if (minutes <= 90.0 && minutes != 60.0) {
-            if (minutes >= 10) minutes = floor(minutes)
-            return nf.format(minutes) + " " + res.getString(R.string.unit_min)
-        }
-
-        val hours = minutes / 60.0
-        return nf.format(hours) + " " + res.getString(R.string.unit_hrs)
     }
 }

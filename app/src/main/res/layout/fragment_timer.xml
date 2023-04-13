@@ -23,28 +23,11 @@
             android:text="@string/start" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/time_view"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/timerWrapper"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:textAppearance="@android:style/TextAppearance.Large"
-        android:textSize="56sp"
-        />
-    <Button
-        android:id="@+id/start_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:text="@string/start"
-        />
-    <Button
-        android:id="@+id/stop_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="8dp"
-        android:text="@string/stop"
-        />
+        android:orientation="vertical">
+
+    </LinearLayout>
 </LinearLayout>

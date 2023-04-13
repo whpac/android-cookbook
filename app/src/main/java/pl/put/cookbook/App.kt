@@ -12,5 +12,7 @@ class App : Application() {
     companion object {
         lateinit var appResources: Resources
             private set
+
+        var timers: MutableList<Timer> = ArrayList()
     }
 }

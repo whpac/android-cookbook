@@ -1,9 +1,9 @@
 package pl.put.cookbook
 
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.Fragment
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -92,6 +92,10 @@ class TimerFragment : Fragment() {
                     val secs = seconds % 60
                     val time = String.format("%d:%02d", minutes, secs)
                     tv.text = time
+
+                    if(seconds == 0L){
+                        tv.setTextColor(Color.RED)
+                    }
                 }
 
                 handler.postDelayed(this, 100)
@@ -99,29 +103,39 @@ class TimerFragment : Fragment() {
         })
     }
 
-    private fun generateTimerRow(t: Timer, timerWrapper: LinearLayout) {
+    private fun generateTimerRow(timer: Timer, timerWrapper: LinearLayout) {
         val timerText = TextView(this.activity)
         timerText.text = ""
         timerText.setTextAppearance(android.R.style.TextAppearance_Large)
         timerTextViews.add(timerText)
 
         val timerButton = Button(this.activity)
-        timerButton.text = getString(if (t.isRunning) R.string.stop else R.string.start)
+        timerButton.text = getString(if (timer.isRunning) R.string.stop else R.string.start)
         timerButton.setOnClickListener {
-            if(t.isRunning) {
-                t.stop()
+            if(timer.isRunning) {
+                timer.stop()
                 timerButton.text = getString(R.string.start)
             } else {
-                t.start()
+                timer.start()
                 timerButton.text = getString(R.string.stop)
             }
         }
+
+        val deleteButton = Button(this.activity)
+        deleteButton.text = getString(R.string.deleteTimer)
 
 
         val timerLayout = LinearLayout(this.activity)
         timerLayout.addView(timerText)
         timerLayout.addView(timerButton)
+        timerLayout.addView(deleteButton)
         timerWrapper.addView(timerLayout)
+
+        deleteButton.setOnClickListener {
+            timerTextViews.remove(timerText)
+            App.timers.remove(timer)
+            timerWrapper.removeView(timerLayout)
+        }
     }
 
     private fun stringifyLongArray(array: Iterable<Long>): String {

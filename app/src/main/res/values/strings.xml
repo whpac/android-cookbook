@@ -6,7 +6,7 @@
     <string name="new_timer">Nowy minutnik:</string>
     <string name="start">Start</string>
     <string name="stop">Stop</string>
-    <string name="reset">Reset</string>
+    <string name="deleteTimer">Delete</string>
     <string name="unit_sec">sek</string>
     <string name="unit_min">min</string>
     <string name="unit_hrs">godz</string>

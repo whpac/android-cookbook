@@ -20,14 +20,18 @@ class Timer(duration: Long) {
     }
 
     fun getRemainingTime(): Long {
-        return if(isRunning) {
+        val r = if(isRunning) {
             endTime - now()
         }else{
             remainingSeconds
         }
+
+        return if(r >= 0) r else 0
     }
 
     fun start() {
+        if(getRemainingTime() <= 0) return
+
         endTime = now() + getRemainingTime()
         isRunning = true
     }

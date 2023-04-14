@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">CookBook</string>
+    <string name="recipe_list_title">Książka kucharska</string>
     <string name="detail_button">Pokaż przepis</string>
     <string name="recipe_name">Nazwa dania</string>
     <string name="recipe_text">Treść przepisu</string>

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.FragmentTransaction
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.Toolbar
 import android.widget.FrameLayout
 
 
@@ -13,10 +14,12 @@ class MainActivity : AppCompatActivity(), RecipeListFragment.Listener {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
     }
 
     override fun onItemClicked(id: Long) {
-        val detailsFragment = findViewById<FrameLayout>(R.id.recipe_details);
+        val detailsFragment = findViewById<FrameLayout>(R.id.recipe_details)
         if(detailsFragment != null) {
             val transaction = supportFragmentManager.beginTransaction()
             val recipeDetailsFragment = RecipeDetailsFragment()

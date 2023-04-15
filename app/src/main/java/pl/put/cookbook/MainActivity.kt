@@ -2,7 +2,12 @@ package pl.put.cookbook
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.design.widget.TabLayout
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
+import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.app.FragmentTransaction
+import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.widget.FrameLayout
@@ -16,6 +21,12 @@ class MainActivity : AppCompatActivity(), RecipeListFragment.Listener {
         setContentView(R.layout.activity_main)
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
+
+        val pagerAdapter = SectionsPagerAdapter(supportFragmentManager)
+        val pager = findViewById<ViewPager>(R.id.pager)
+        pager.adapter = pagerAdapter
+        val tabLayout = findViewById<TabLayout>(R.id.tabs)
+        tabLayout.setupWithViewPager(pager)
     }
 
     override fun onItemClicked(id: Long) {
@@ -34,4 +45,27 @@ class MainActivity : AppCompatActivity(), RecipeListFragment.Listener {
             startActivity(intent)
         }
     }
+
+    private class SectionsPagerAdapter(fm: FragmentManager?) : FragmentPagerAdapter(fm) {
+        override fun getCount(): Int {
+            return 2
+        }
+
+        override fun getItem(position: Int): Fragment? {
+            when (position) {
+                0 -> return MainFragment()
+                1 -> return RecipeListFragment()
+            }
+            return null
+        }
+
+        override fun getPageTitle(position: Int): CharSequence? {
+            when (position) {
+                0 -> return App.appResources.getText(R.string.home_tab)
+                1 -> return App.appResources.getText(R.string.recipes_tab)
+            }
+            return null
+        }
+    }
+
 }

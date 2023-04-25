@@ -14,6 +14,11 @@
 
     <string name="home_tab">Główna</string>
     <string name="recipes_tab">Przepisy</string>
+
+    <string name="top_header">Jakiś nagłówek</string>
+    <string name="top_image">Jakiś obrazek</string>
+    <string name="top_text">Jakieś kilkuzdaniowe bla bla bla.</string>
+    <string name="image_title">Obrazek</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

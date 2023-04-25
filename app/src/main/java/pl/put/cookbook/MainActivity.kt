@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity(), RecipeListFragment.Listener {
         override fun getItem(position: Int): Fragment? {
             when (position) {
                 0 -> return MainFragment()
-                1 -> return RecipeListFragment()
+                1 -> return FragmentTab1()
             }
             return null
         }

@@ -39,6 +39,9 @@ class RecipeDetailsFragment : Fragment() {
 
         val recipe = Recipe.recipes[recipeId.toInt()]
 
+        val image = view.findViewById<ImageView>(R.id.recipe_image)
+        image?.setImageResource(recipe.getImageResourceId())
+
         val title = view.findViewById<TextView>(R.id.textTitle)
         title.text = recipe.getName()
 

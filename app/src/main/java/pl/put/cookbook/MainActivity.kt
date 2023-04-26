@@ -10,10 +10,13 @@ import android.support.v4.app.FragmentTransaction
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.widget.FrameLayout
 
 
-class MainActivity : AppCompatActivity(), RecipeListFragment.Listener {
+class MainActivity : AppCompatActivity(), RecipeListFragment.Listener, FragmentTab1.ItemListenerActivity {
+
+    lateinit var pager: ViewPager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,13 +26,15 @@ class MainActivity : AppCompatActivity(), RecipeListFragment.Listener {
         setSupportActionBar(toolbar)
 
         val pagerAdapter = SectionsPagerAdapter(supportFragmentManager)
-        val pager = findViewById<ViewPager>(R.id.pager)
+        pager = findViewById(R.id.pager)
         pager.adapter = pagerAdapter
+        pager.currentItem = savedInstanceState?.getInt(STATE_TAB_ID) ?: 0
         val tabLayout = findViewById<TabLayout>(R.id.tabs)
         tabLayout.setupWithViewPager(pager)
     }
 
     override fun onItemClicked(id: Long) {
+        Log.i("RECIPES", id.toString())
         val detailsFragment = findViewById<FrameLayout>(R.id.recipe_details)
         if(detailsFragment != null) {
             val transaction = supportFragmentManager.beginTransaction()
@@ -44,6 +49,12 @@ class MainActivity : AppCompatActivity(), RecipeListFragment.Listener {
             intent.putExtra(DetailActivity.EXTRA_RECIPE_ID, id)
             startActivity(intent)
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        outState.putInt(STATE_TAB_ID, pager.currentItem)
     }
 
     private class SectionsPagerAdapter(fm: FragmentManager?) : FragmentPagerAdapter(fm) {
@@ -66,6 +77,10 @@ class MainActivity : AppCompatActivity(), RecipeListFragment.Listener {
             }
             return null
         }
+    }
+
+    companion object {
+        private const val STATE_TAB_ID = "tab_id"
     }
 
 }

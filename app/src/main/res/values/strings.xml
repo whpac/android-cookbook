@@ -13,7 +13,8 @@
     <string name="unit_hrs">godz</string>
 
     <string name="home_tab">Główna</string>
-    <string name="recipes_tab">Przepisy</string>
+    <string name="main_courses_tab">Dania główne</string>
+    <string name="desserts_tab">Desery</string>
 
     <string name="top_header">Książka z przepisami</string>
     <string name="top_text">Ta aplikacja zawiera najbogatszy na świecie zbiór przepisów na dania główne i desery. Używaj rozważnie, dietetycy czają się na każdym kroku.&#10;&#10;Wykonanie: Marcin Szwarc, Helena Masłowska</string>

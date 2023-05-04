@@ -14,7 +14,7 @@ import android.util.Log
 import android.widget.FrameLayout
 
 
-class MainActivity : AppCompatActivity(), RecipeListFragment.Listener, FragmentTab1.ItemListenerActivity {
+class MainActivity : AppCompatActivity(), RecipeListFragment.Listener, FragmentTab1.ItemListenerActivity, FragmentTab2.ItemListenerActivity {
 
     lateinit var pager: ViewPager
 
@@ -59,13 +59,14 @@ class MainActivity : AppCompatActivity(), RecipeListFragment.Listener, FragmentT
 
     private class SectionsPagerAdapter(fm: FragmentManager?) : FragmentPagerAdapter(fm) {
         override fun getCount(): Int {
-            return 2
+            return 3
         }
 
         override fun getItem(position: Int): Fragment? {
             when (position) {
                 0 -> return MainFragment()
                 1 -> return FragmentTab1()
+                2 -> return FragmentTab2()
             }
             return null
         }
@@ -73,7 +74,8 @@ class MainActivity : AppCompatActivity(), RecipeListFragment.Listener, FragmentT
         override fun getPageTitle(position: Int): CharSequence? {
             when (position) {
                 0 -> return App.appResources.getText(R.string.home_tab)
-                1 -> return App.appResources.getText(R.string.recipes_tab)
+                1 -> return App.appResources.getText(R.string.main_courses_tab)
+                2 -> return App.appResources.getText(R.string.desserts_tab)
             }
             return null
         }

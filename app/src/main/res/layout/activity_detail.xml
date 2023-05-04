@@ -56,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        android:src="@drawable/done"
+        android:src="@drawable/share"
         android:onClick="onClickDone" />
 
 </android.support.design.widget.CoordinatorLayout>

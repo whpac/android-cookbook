@@ -14,24 +14,28 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/top_header" />
+                android:layout_margin="16dp"
+                android:text="@string/top_header"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/top_text" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/top_image" />
+                android:layout_margin="16dp"
+                android:text="@string/top_text"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
             <fragment
+                android:id="@+id/lollipopFragment"
+                class="pl.put.cookbook.LollipopFragment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                class="pl.put.cookbook.LollipopFragment"
-                android:id="@+id/lollipopFragment" />
+                android:layout_gravity="center_horizontal"
+                tools:layout="@layout/fragment_lollipop" />
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 

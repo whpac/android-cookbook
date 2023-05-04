@@ -26,6 +26,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/top_image" />
+
+            <fragment
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                class="pl.put.cookbook.LollipopFragment"
+                android:id="@+id/lollipopFragment" />
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 

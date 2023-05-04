@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LollipopFragment">
+       <View
+           android:id="@+id/lollipopStick"
+           android:layout_width="12dp"
+           android:layout_height="200dp"
+           android:layout_alignParentStart="true"
+           android:layout_alignParentTop="true"
+           android:layout_gravity="center"
+           android:layout_marginStart="50dp"
+           android:layout_marginTop="24dp"
+           android:background="@color/lollipopStick"/>
+
+       <ImageView
+           android:id="@+id/lollipop3"
+           android:layout_width="112dp"
+           android:layout_height="112dp"
+           android:layout_gravity="center"
+           android:src="@drawable/lollipop3" />
+
+       <ImageView
+           android:id="@+id/lollipop2"
+           android:layout_width="80dp"
+           android:layout_height="80dp"
+           android:layout_alignParentStart="true"
+           android:layout_alignParentTop="true"
+           android:layout_gravity="center"
+           android:layout_marginStart="16dp"
+           android:layout_marginTop="16dp"
+           android:src="@drawable/lollipop2" />
+
+       <ImageView
+           android:id="@+id/lollipop1"
+           android:layout_width="48dp"
+           android:layout_height="48dp"
+           android:layout_alignParentStart="true"
+           android:layout_alignParentTop="true"
+           android:layout_gravity="center"
+           android:layout_marginStart="32dp"
+           android:layout_marginTop="32dp"
+           android:src="@drawable/lollipop1" />
+</RelativeLayout>

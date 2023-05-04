@@ -11,6 +11,8 @@
     <string name="unit_sec">sek</string>
     <string name="unit_min">min</string>
     <string name="unit_hrs">godz</string>
+    <string name="unit_kg">kg</string>
+    <string name="unit_l">l</string>
 
     <string name="home_tab">Główna</string>
     <string name="main_courses_tab">Dania główne</string>

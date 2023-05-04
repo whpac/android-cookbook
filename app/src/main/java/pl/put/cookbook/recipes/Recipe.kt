@@ -11,7 +11,18 @@ class Recipe private constructor(
     fun getRecipe(): String {
         val sb = StringBuilder()
         for(i in this.ingredients) {
-            sb.append(i.getName() + ": " + i.getQuantity() + " " + i.getUnit() + "\n")
+            sb.append(i.getName())
+            val unit = i.getUnit()
+
+            if(unit.displayQuantity){
+                sb.append(": ")
+                if(!unit.displayUnit) {
+                    sb.append(i.getQuantity().toInt())
+                }else{
+                    sb.append(i.getQuantity().toString() + " " + unit.getSymbol())
+                }
+            }
+            sb.append("\n")
         }
         sb.append("\n")
 

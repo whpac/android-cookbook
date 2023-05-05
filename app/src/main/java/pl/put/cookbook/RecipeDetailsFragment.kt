@@ -12,6 +12,7 @@ import pl.put.cookbook.recipes.Recipe
 
 class RecipeDetailsFragment : Fragment() {
     private var recipeId: Long = 0
+    private var tabId: Int = 0
     private lateinit var timerFragment: TimerFragment
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -37,7 +38,7 @@ class RecipeDetailsFragment : Fragment() {
         super.onStart()
         val view = view ?: return
 
-        val recipe = Recipe.recipes[recipeId.toInt()]
+        val recipe = Recipe.recipes[tabId][recipeId.toInt()]
 
         val image = view.findViewById<ImageView>(R.id.recipe_image)
         image?.setImageResource(recipe.getImageResourceId())
@@ -56,8 +57,9 @@ class RecipeDetailsFragment : Fragment() {
         timerFragment.setSuggestedTimes(timeList.toArray(arrayOf()))
     }
 
-    fun setRecipe(recipeId: Long){
+    fun setRecipe(recipeId: Long, tabId: Int){
         this.recipeId = recipeId
+        this.tabId = tabId
     }
 
     override fun onSaveInstanceState(savedInstanceState: Bundle) {

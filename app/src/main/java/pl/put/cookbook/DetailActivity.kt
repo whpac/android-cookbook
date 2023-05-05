@@ -23,9 +23,10 @@ class DetailActivity : AppCompatActivity() {
 
         val frag = supportFragmentManager.findFragmentById(R.id.details_frag) as RecipeDetailsFragment?
         val recipeId = intent.extras?.getLong(EXTRA_RECIPE_ID) ?: 0
-        frag?.setRecipe(recipeId)
+        val tabId = intent.extras?.getInt(EXTRA_TAB_ID) ?: 0
+        frag?.setRecipe(recipeId, tabId)
 
-        val recipe = Recipe.recipes[recipeId.toInt()]
+        val recipe = Recipe.recipes[tabId][recipeId.toInt()]
         val recipeImage = findViewById<ImageView>(R.id.recipe_image)
         recipeImage.setImageResource(recipe.getImageResourceId())
         this.title = recipe.getName()
@@ -41,5 +42,6 @@ class DetailActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_RECIPE_ID = "recipe_id"
+        const val EXTRA_TAB_ID = "tab_id"
     }
 }

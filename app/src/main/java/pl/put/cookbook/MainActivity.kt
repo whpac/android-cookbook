@@ -14,7 +14,7 @@ import android.util.Log
 import android.widget.FrameLayout
 
 
-class MainActivity : AppCompatActivity(), RecipeListFragment.Listener, FragmentTab1.ItemListenerActivity, FragmentTab2.ItemListenerActivity {
+class MainActivity : AppCompatActivity(), FragmentTab1.ItemListenerActivity, FragmentTab2.ItemListenerActivity {
 
     lateinit var pager: ViewPager
 
@@ -33,13 +33,13 @@ class MainActivity : AppCompatActivity(), RecipeListFragment.Listener, FragmentT
         tabLayout.setupWithViewPager(pager)
     }
 
-    override fun onItemClicked(id: Long) {
+    override fun onItemClicked(id: Long, tab: Int) {
         Log.i("RECIPES", id.toString())
         val detailsFragment = findViewById<FrameLayout>(R.id.recipe_details)
         if(detailsFragment != null) {
             val transaction = supportFragmentManager.beginTransaction()
             val recipeDetailsFragment = RecipeDetailsFragment()
-            recipeDetailsFragment.setRecipe(id)
+            recipeDetailsFragment.setRecipe(id, tab)
             transaction.replace(R.id.recipe_details, recipeDetailsFragment)
             transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             transaction.addToBackStack(null)
@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity(), RecipeListFragment.Listener, FragmentT
         } else {
             val intent = Intent(this, DetailActivity::class.java)
             intent.putExtra(DetailActivity.EXTRA_RECIPE_ID, id)
+            intent.putExtra(DetailActivity.EXTRA_TAB_ID, tab)
             startActivity(intent)
         }
     }
